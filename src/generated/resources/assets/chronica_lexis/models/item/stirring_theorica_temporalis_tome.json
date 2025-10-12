@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "chronica_lexis:item/stirring_theorica_temporalis_tome"
+  }
+}
