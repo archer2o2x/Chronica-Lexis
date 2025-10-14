@@ -1,8 +1,8 @@
 {
   "item.chronica_lexis.chronica_lexis_tome" : "Chronica Lexis",
-  "item.chronica_lexis.theorica_temporalis_tome": "Theorica Temporalis",
-  "item.chronica_lexis.stirring_theorica_temporalis_tome": "Stirring Theorica Temporalis",
-  "item.chronica_lexis.awakened_theorica_temporalis_tome": "Awakened Theorica Temporalis",
+  "item.chronica_lexis.theorica_temporalis_tome": "Theorica Temporalis (Dormant)",
+  "item.chronica_lexis.stirring_theorica_temporalis_tome": "Theorica Temporalis (Stirring)",
+  "item.chronica_lexis.awakened_theorica_temporalis_tome": "Theorica Temporalis (Awakened)",
 
   "item_group.chronica_lexis.main": "Chronica Lexis"
 }
