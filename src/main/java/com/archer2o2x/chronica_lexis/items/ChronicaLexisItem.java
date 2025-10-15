@@ -31,7 +31,7 @@ public class ChronicaLexisItem extends ChronoGainItem {
 
     @Override
     public void appendHoverText(ItemStack p_41421_, @Nullable Level p_41422_, List<Component> p_41423_, TooltipFlag p_41424_) {
-        p_41423_.add(Component.literal("One of the great old tomes,").withStyle(ChatFormatting.DARK_GRAY));
-        p_41423_.add(Component.literal("binding the laws of time.").withStyle(ChatFormatting.DARK_GRAY));
+        p_41423_.add(Component.translatable("desc.chronica_lexis.chronica_lexis_tome.1").withStyle(ChatFormatting.DARK_GRAY));
+        p_41423_.add(Component.translatable("desc.chronica_lexis.chronica_lexis_tome.2").withStyle(ChatFormatting.DARK_GRAY));
     }
 }

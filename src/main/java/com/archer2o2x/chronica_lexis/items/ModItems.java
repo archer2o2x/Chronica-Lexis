@@ -28,7 +28,7 @@ public class ModItems {
     }
 
     // TODO NEXT TIME
-    // - Implement the next stage of Theorica Temporalis awakening. (Waystones Github, BoundScrollItem)
+    // - Properly put all the text into translatable components
     // - Implement the basic functionality of the Chronica Lexis, E.G. Holding scriptures, scrolling and usage.
 
 }

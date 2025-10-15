@@ -50,7 +50,7 @@ public class TheoricaTemporalisItem extends ChronoGainItem {
             assert player != null;
             boolean heldInMainHand = player.getItemInHand(InteractionHand.MAIN_HAND) == p_41427_.getItemInHand();
             // Next form of Theorica Temporalis
-            sendStatusMessage(player, Component.literal("The Chronica Lexis is born, granted as a gift from one long forgotten."));
+            sendStatusMessage(player, Component.translatable("step.chronica_lexis.theorica_temporalis.reborn"));
             ItemStack newItem = new ItemStack(ModItems.CHRONICHA_LEXIS_TOME.get());
             if (heldInMainHand) {
                 player.setItemSlot(EquipmentSlot.MAINHAND, newItem);
@@ -81,7 +81,7 @@ public class TheoricaTemporalisItem extends ChronoGainItem {
         if (p_41411_ instanceof ServerPlayer player) {
             boolean heldInMainHand = player.getItemInHand(InteractionHand.MAIN_HAND) == p_41409_;
             if (player.getItemInHand(heldInMainHand ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND).getItem() != Items.CLOCK || p_41410_.getDayTime() < 22500) {
-                sendStatusMessage(player, Component.literal("The Theorica Temporalis feels nothing."));
+                sendStatusMessage(player, Component.translatable("step.chronica_lexis.theorica_temporalis.failure"));
                 player.getCooldowns().addCooldown(this, 20);
                 return p_41409_;
             }
@@ -93,7 +93,7 @@ public class TheoricaTemporalisItem extends ChronoGainItem {
             int sunrises = tag.contains("sunrises") ? tag.getInt("sunrises") + 1 : 1;
             if (sunrises >= 3) {
                 // Next form of Theorica Temporalis
-                sendStatusMessage(player, Component.literal("The Theorica Temporalis has fully awakened, and craves rebirth."));
+                sendStatusMessage(player, Component.translatable("step.chronica_lexis.theorica_temporalis.awakened"));
                 ItemStack newItem = new ItemStack(ModItems.AWAKENED_THEORICA_TEMPORALIS_TOME.get());
                 if (heldInMainHand) {
                     player.setItemSlot(EquipmentSlot.MAINHAND, newItem);
@@ -104,7 +104,7 @@ public class TheoricaTemporalisItem extends ChronoGainItem {
             } else {
                 // Successful, but not enough yet
                 tag.putInt("sunrises", sunrises);
-                sendStatusMessage(player, Component.literal("The Theorica Temporalis feels the gentle pull of raw time."));
+                sendStatusMessage(player, Component.translatable("step.chronica_lexis.theorica_temporalis.success"));
             }
             player.getCooldowns().addCooldown(this, 20);
         }
@@ -116,7 +116,7 @@ public class TheoricaTemporalisItem extends ChronoGainItem {
         super.inventoryTick(pItemStack, pLevel, pEntity, p_41407_, p_41408_);
         if (state == State.DORMANT && pEntity instanceof  Player player) {
             if (getChrono(pItemStack) >= DORMANCY_THRESHOLD) {
-                sendStatusMessage(player, Component.literal("The Theorica Temporalis slowly stirs from its slumber."));
+                sendStatusMessage(player, Component.translatable("step.chronica_lexis.theorica_temporalis.stirring"));
                 ItemStack newItem = new ItemStack(ModItems.STIRRING_THEORICA_TEMPORALIS_TOME.get());
                 if (player.getItemInHand(InteractionHand.OFF_HAND) == pItemStack) {
                     player.setItemSlot(EquipmentSlot.OFFHAND, newItem);
@@ -142,16 +142,16 @@ public class TheoricaTemporalisItem extends ChronoGainItem {
     public void appendHoverText(ItemStack p_41421_, @Nullable Level p_41422_, List<Component> p_41423_, TooltipFlag p_41424_) {
         switch (state) {
             case DORMANT -> {
-                p_41423_.add(Component.literal("A grand tome of old magic,").withStyle(ChatFormatting.DARK_GRAY));
-                p_41423_.add(Component.literal("still slumbering deeply.").withStyle(ChatFormatting.DARK_GRAY));
+                p_41423_.add(Component.translatable("desc.chronica_lexis.theorica_temporalis_tome.1").withStyle(ChatFormatting.DARK_GRAY));
+                p_41423_.add(Component.translatable("desc.chronica_lexis.theorica_temporalis_tome.2").withStyle(ChatFormatting.DARK_GRAY));
             }
             case STIRRING -> {
-                p_41423_.add(Component.literal("A grand tome of old magic,").withStyle(ChatFormatting.DARK_GRAY));
-                p_41423_.add(Component.literal("stirring slowly from sleep.").withStyle(ChatFormatting.DARK_GRAY));
+                p_41423_.add(Component.translatable("desc.chronica_lexis.stirring_theorica_temporalis_tome.1").withStyle(ChatFormatting.DARK_GRAY));
+                p_41423_.add(Component.translatable("desc.chronica_lexis.stirring_theorica_temporalis_tome.2").withStyle(ChatFormatting.DARK_GRAY));
             }
             case AWAKENED -> {
-                p_41423_.add(Component.literal("A grand tome of old magic,").withStyle(ChatFormatting.DARK_GRAY));
-                p_41423_.add(Component.literal("watching and waiting for rebirth.").withStyle(ChatFormatting.DARK_GRAY));
+                p_41423_.add(Component.translatable("desc.chronica_lexis.awakened_theorica_temporalis_tome.1").withStyle(ChatFormatting.DARK_GRAY));
+                p_41423_.add(Component.translatable("desc.chronica_lexis.awakened_theorica_temporalis_tome.2").withStyle(ChatFormatting.DARK_GRAY));
             }
         }
     }
