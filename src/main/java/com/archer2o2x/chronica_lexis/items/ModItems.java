@@ -14,7 +14,7 @@ public class ModItems {
     public static DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ChronicaLexisMod.MODID);
 
     public static final RegistryObject<Item> CHRONICHA_LEXIS_TOME = ITEMS.register("chronica_lexis_tome",
-            () -> new Item(new Item.Properties().rarity(Rarity.EPIC).fireResistant().stacksTo(1)));
+            () -> new ChronicaLexisItem(new Item.Properties().rarity(Rarity.EPIC).fireResistant().stacksTo(1)));
 
     public static final RegistryObject<Item> THEORICA_TEMPORALIS_TOME = ITEMS.register("theorica_temporalis_tome",
             () -> new TheoricaTemporalisItem(new Item.Properties().rarity(Rarity.EPIC).fireResistant().stacksTo(1), TheoricaTemporalisItem.State.DORMANT));

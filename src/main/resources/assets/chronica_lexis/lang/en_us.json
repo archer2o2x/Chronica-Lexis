@@ -4,5 +4,20 @@
   "item.chronica_lexis.stirring_theorica_temporalis_tome": "Theorica Temporalis (Stirring)",
   "item.chronica_lexis.awakened_theorica_temporalis_tome": "Theorica Temporalis (Awakened)",
 
+  "step.chronica_lexis.theorica_temporalis.reborn": "The Chronica Lexis is born, granted as a gift from one long forgotten.",
+  "step.chronica_lexis.theorica_temporalis.awakened": "The Theorica Temporalis has fully awakened, and craves rebirth.",
+  "step.chronica_lexis.theorica_temporalis.stirring": "The Theorica Temporalis slowly stirs from its slumber.",
+  "step.chronica_lexis.theorica_temporalis.success": "The Theorica Temporalis feels the gentle pull of raw time.",
+  "step.chronica_lexis.theorica_temporalis.failure": "The Theorica Temporalis feels nothing.",
+
+  "desc.chronica_lexis.chronica_lexis_tome.1": "One of the great old tomes,",
+  "desc.chronica_lexis.chronica_lexis_tome.2": "binding the laws of time.",
+  "desc.chronica_lexis.theorica_temporalis_tome.1": "A grand tome of old magic,",
+  "desc.chronica_lexis.theorica_temporalis_tome.2": "still slumbering deeply.",
+  "desc.chronica_lexis.stirring_theorica_temporalis_tome.1": "A grand tome of old magic,",
+  "desc.chronica_lexis.stirring_theorica_temporalis_tome.2": "stirring slowly from sleep.",
+  "desc.chronica_lexis.awakened_theorica_temporalis_tome.1": "A grand tome of old magic,",
+  "desc.chronica_lexis.awakened_theorica_temporalis_tome.2": "watching and waiting for rebirth.",
+
   "item_group.chronica_lexis.main": "Chronica Lexis"
 }
