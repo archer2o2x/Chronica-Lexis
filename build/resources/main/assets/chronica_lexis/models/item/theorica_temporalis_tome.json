@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "chronica_lexis:item/theorica_temporalis_tome"
-  }
-}

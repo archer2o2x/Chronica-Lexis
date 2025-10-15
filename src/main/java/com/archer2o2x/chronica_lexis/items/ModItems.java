@@ -28,7 +28,9 @@ public class ModItems {
     }
 
     // TODO NEXT TIME
-    // - Properly put all the text into translatable components
+    // - Started on the screen functionality of the Chronica Lexis, but I think that the Item.use method is only called server-side.
+    // - Gonna need to look into codecs (or the other networking stuff) to make it load the screen properly.
+    // - Also need to have a think about how I'm gonna store the book data, ideally not hard code anything nor spam NBT data.
     // - Implement the basic functionality of the Chronica Lexis, E.G. Holding scriptures, scrolling and usage.
 
 }

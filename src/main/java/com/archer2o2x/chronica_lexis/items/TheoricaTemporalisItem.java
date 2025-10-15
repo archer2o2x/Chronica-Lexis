@@ -1,6 +1,9 @@
 package com.archer2o2x.chronica_lexis.items;
 
+import com.archer2o2x.chronica_lexis.client.ModClientHooks;
+import com.archer2o2x.chronica_lexis.screens.TheoricaTemporalisBookScreen;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -19,6 +22,8 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.DistExecutor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -71,6 +76,9 @@ public class TheoricaTemporalisItem extends ChronoGainItem {
                 pPlayer.startUsingItem(pHand);
             }
             return InteractionResultHolder.success(stack);
+        }
+        if (pLevel.isClientSide()) {
+            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ModClientHooks.openTomeScreen(null));
         }
         return InteractionResultHolder.pass(stack);
     }
