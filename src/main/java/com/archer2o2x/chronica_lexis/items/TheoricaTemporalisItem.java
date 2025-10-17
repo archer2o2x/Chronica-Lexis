@@ -1,6 +1,8 @@
 package com.archer2o2x.chronica_lexis.items;
 
 import com.archer2o2x.chronica_lexis.client.ModClientHooks;
+import com.archer2o2x.chronica_lexis.network.ModPacketHandler;
+import com.archer2o2x.chronica_lexis.network.OpenTomePacket;
 import com.archer2o2x.chronica_lexis.screens.TheoricaTemporalisBookScreen;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -9,6 +11,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -24,9 +27,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.time.chrono.MinguoEra;
 import java.util.List;
 import java.util.Objects;
 
@@ -74,12 +79,13 @@ public class TheoricaTemporalisItem extends ChronoGainItem {
         if (state == State.STIRRING) {
             if (getUseDuration(stack) > 0) {
                 pPlayer.startUsingItem(pHand);
+                return InteractionResultHolder.success(stack);
             }
-            return InteractionResultHolder.success(stack);
         }
-        if (pLevel.isClientSide()) {
-            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ModClientHooks.openTomeScreen(null));
-        }
+//        if (pLevel.isClientSide()) {
+//            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ModClientHooks.openTomeScreen(null));
+//        }
+        ModPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) pPlayer), new OpenTomePacket(ResourceLocation.fromNamespaceAndPath("minecraft", "gold_axe")));
         return InteractionResultHolder.pass(stack);
     }
 
@@ -137,13 +143,15 @@ public class TheoricaTemporalisItem extends ChronoGainItem {
 
     @Override
     public UseAnim getUseAnimation(ItemStack p_41452_) {
-        if (getUseDuration(p_41452_) <= 0 || state != State.STIRRING) return UseAnim.NONE;
+        boolean isSunrise = Minecraft.getInstance().level != null && Minecraft.getInstance().level.getDayTime() >= 22500;
+        if (getUseDuration(p_41452_) <= 0 || state != State.STIRRING || !isSunrise) return UseAnim.NONE;
         return UseAnim.BOW;
     }
 
     @Override
     public int getUseDuration(ItemStack p_41454_) {
-        return state == State.STIRRING ? 60 : 0;
+        boolean isSunrise = Minecraft.getInstance().level != null && Minecraft.getInstance().level.getDayTime() >= 22500;
+        return (state == State.STIRRING && isSunrise) ? 60 : 0;
     }
 
     @Override

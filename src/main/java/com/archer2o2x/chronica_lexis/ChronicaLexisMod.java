@@ -2,6 +2,7 @@ package com.archer2o2x.chronica_lexis;
 
 import com.archer2o2x.chronica_lexis.items.ModCreativeTab;
 import com.archer2o2x.chronica_lexis.items.ModItems;
+import com.archer2o2x.chronica_lexis.network.ModPacketHandler;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -48,6 +49,8 @@ public class ChronicaLexisMod
 
         ModItems.register(modEventBus);
         ModCreativeTab.register(modEventBus);
+
+        ModPacketHandler.register();
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
