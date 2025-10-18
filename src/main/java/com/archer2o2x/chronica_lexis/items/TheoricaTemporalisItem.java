@@ -85,7 +85,7 @@ public class TheoricaTemporalisItem extends ChronoGainItem {
 //        if (pLevel.isClientSide()) {
 //            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ModClientHooks.openTomeScreen(null));
 //        }
-        ModPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) pPlayer), new OpenTomePacket(ResourceLocation.fromNamespaceAndPath("minecraft", "gold_axe")));
+        ModPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) pPlayer), new OpenTomePacket(stack));
         return InteractionResultHolder.pass(stack);
     }
 

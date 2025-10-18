@@ -6,6 +6,8 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
@@ -34,9 +36,11 @@ public class TheoricaTemporalisBookScreen extends Screen {
     private int leftPos, topPos;
 
     private Button prev, next;
+    private ItemStack item;
 
-    public TheoricaTemporalisBookScreen() {
+    public TheoricaTemporalisBookScreen(ItemStack item) {
         super(TITLE);
+        this.item = item;
         this.imageWidth = 160;
         this.imageHeight = 196;
     }
@@ -60,22 +64,24 @@ public class TheoricaTemporalisBookScreen extends Screen {
 //        for (int i = 0; i < PAGES.length; i++) {
 //            gui.drawString(this.font, PAGES[i], this.leftPos - 66, this.topPos + 25 + (10 * i), 0xFF000000, false);
 //        }
+        renderPage(gui, TEXTURE_LEFT, -81, "Theorica Temporalis", PAGES, 1);
+        renderPage(gui, TEXTURE_RIGHT, 81, "Stirring", new String[] {}, 2);
 
-        renderPage(gui, TEXTURE_LEFT, -81, "Theorica Temporalis", PAGES);
-        renderPage(gui, TEXTURE_RIGHT, 81, "Page 1 / 1", new String[] {});
+        gui.renderItem(this.item, this.leftPos, this.topPos + 98);
 
         super.render(gui, mouse_x, mouse_y, partialTicks);
     }
 
-    private void renderPage(GuiGraphics gui, ResourceLocation texture, int offset_x, String title, String[] pages) {
+    private void renderPage(GuiGraphics gui, ResourceLocation texture, int offset_x, String title, String[] lines, int pageIndex) {
         gui.blit(texture, this.leftPos + offset_x, this.topPos, 0, 0, this.imageWidth, this.imageHeight);
         int titleHalf = this.font.width(title) / 2;
         gui.drawString(this.font, title, this.leftPos + 80 - titleHalf + offset_x, this.topPos + 10, 0, false);
         gui.hLine(this.leftPos + 15 + offset_x, this.leftPos + 145 + offset_x, this.topPos + 20, 0xFF000000);
-        for (int i = 0; i < pages.length; i++) {
-            gui.drawString(this.font, pages[i], this.leftPos + 15 + offset_x, this.topPos + 25 + (10 * i), 0xFF000000, false);
+        for (int i = 0; i < lines.length; i++) {
+            gui.drawString(this.font, lines[i], this.leftPos + 20 + offset_x, this.topPos + 25 + (10 * i), 0xFF000000, false);
         }
-
+        int pageNumHalf = this.font.width(String.valueOf(pageIndex)) / 2;
+        gui.drawString(this.font, String.valueOf(pageIndex), this.leftPos + 80 - pageNumHalf + offset_x, this.topPos + 196 - 21, 0, false);
     }
 
     private String[] wrapText(String input, int width) {

@@ -26,7 +26,8 @@ public class ChronicaLexisItem extends ChronoGainItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level p_41432_, Player p_41433_, InteractionHand p_41434_) {
         if (p_41433_ instanceof ServerPlayer player) {
-            ModPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), new OpenTomePacket(ResourceLocation.fromNamespaceAndPath("minecraft", "gold_axe")));
+            ItemStack stack = p_41433_.getItemInHand(p_41434_);
+            ModPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), new OpenTomePacket(stack));
         }
         return InteractionResultHolder.success(p_41433_.getItemInHand(p_41434_));
     }

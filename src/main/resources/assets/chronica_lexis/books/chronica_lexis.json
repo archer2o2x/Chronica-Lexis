@@ -1,0 +1,16 @@
+[
+  {
+    "type": "text",
+    "x": 90,
+    "y": 24,
+    "lines": [
+      "This is a textbox."
+    ]
+  },
+  {
+    "type": "item",
+    "x": 90,
+    "y": 24,
+    "item": "chronica_lexis:stirring_theorica_temporalis"
+  }
+]

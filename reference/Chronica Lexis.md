@@ -49,11 +49,11 @@ Edict of Premature Fading (Rare)
 - Consumes 900 chrono
 - Upon activation, inflict all mobs within 5 blocks of you with Premature Fading.
 - Premature Fading does a small amount of damage over time.
-- If a mob dies with Premature Fading active, you regain 50 chrono up to a max of 900 chrono.
+- If a mob dies with Premature Fading active, you regain 100 chrono up to a max of 900 chrono.
 
 Record of Burning Memories (Rare)
 - Upon activation, consume 1 level of experience every second.
-- Whilst active, gain resistance 2.
+- Whilst active, gain resistance 3.
 - If you run out of experience before disabling the effect, take half your max health as damage.
 
 Doctrine of Crimson Light (Rare)

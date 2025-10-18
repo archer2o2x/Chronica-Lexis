@@ -5,6 +5,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.LogicalSide;
@@ -16,23 +17,23 @@ import java.util.function.Supplier;
 
 public class OpenTomePacket {
 
-    private ResourceLocation location;
+    private ItemStack stack;
 
-    public OpenTomePacket(ResourceLocation location) {
-        this.location = location;
+    public OpenTomePacket(ItemStack stack) {
+        this.stack = stack;
     }
 
     public void encode(FriendlyByteBuf buffer) {
-        buffer.writeResourceLocation(location);
+        buffer.writeItemStack(this.stack, false);
     }
 
     public static OpenTomePacket decode(FriendlyByteBuf buffer) {
-        return new OpenTomePacket(buffer.readResourceLocation());
+        return new OpenTomePacket(buffer.readItem());
     }
 
     public static void handle(OpenTomePacket packet, Supplier<NetworkEvent.Context> ctx) {
         ctx.get().enqueueWork(() ->
-                DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ModClientHooks.openTomeScreen(ForgeRegistries.ITEMS.getValue(packet.location)))
+                DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ModClientHooks.openTomeScreen(packet.stack))
         );
         ctx.get().setPacketHandled(true);
     }
