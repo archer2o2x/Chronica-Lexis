@@ -43,7 +43,7 @@ public class TheoricaTemporalisItem extends ChronoGainItem {
     @Override
     public int getBaseChronoGain() { return 1; }
     @Override
-    public int getMaxChronoStorage() { return DORMANCY_THRESHOLD; }
+    public int getMaxChronoStorage() { return state == State.DORMANT ? DORMANCY_THRESHOLD : 0; }
     @Override
     public int getNumChronoStages() { return 1; }
 
@@ -100,9 +100,9 @@ public class TheoricaTemporalisItem extends ChronoGainItem {
                 return p_41409_;
             }
             player.setItemInHand(heldInMainHand ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND, ItemStack.EMPTY);
-            for (ServerLevel level : Objects.requireNonNull(player.getServer()).getAllLevels()) {
-                level.setDayTime(0);
-            }
+//            for (ServerLevel level : Objects.requireNonNull(player.getServer()).getAllLevels()) {
+//                level.setDayTime(0);
+//            }
             CompoundTag tag = p_41409_.getOrCreateTag();
             int sunrises = tag.contains("sunrises") ? tag.getInt("sunrises") + 1 : 1;
             if (sunrises >= 3) {
@@ -120,7 +120,7 @@ public class TheoricaTemporalisItem extends ChronoGainItem {
                 tag.putInt("sunrises", sunrises);
                 sendStatusMessage(player, Component.translatable("step.chronica_lexis.theorica_temporalis.success"));
             }
-            player.getCooldowns().addCooldown(this, 20);
+            player.getCooldowns().addCooldown(this, 1800);
         }
         return p_41409_;
     }

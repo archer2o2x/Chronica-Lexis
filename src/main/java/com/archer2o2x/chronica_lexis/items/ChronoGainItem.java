@@ -54,6 +54,13 @@ public class ChronoGainItem extends Item {
         return 0;
     }
 
+    public static boolean consumeChrono(ItemStack pStack, int amount) {
+        CompoundTag tag = pStack.getOrCreateTag();
+        if (!tag.contains("chrono")) return false;
+        tag.putInt("chrono", tag.getInt("chrono") - amount);
+        return true;
+    }
+
     private int calculateChronoGain(int chrono) {
 
         int stages = getNumChronoStages();

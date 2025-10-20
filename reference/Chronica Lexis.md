@@ -28,9 +28,9 @@ Mantra of Momentum (Common)
 - Upon being hurt, deactivate scripture.
 - Upon deactivation, give player 5 seconds of slowed movement.
 
-Prayer of the Unbroken Hour (Common)
+Prayer of Fast Recovery (Common)
 - Consumes 450 chrono
-- Grants regeneration and weakness 2 for 10 seconds.
+- Grants regeneration 2 and weakness 2 for 15 seconds.
 
 Hymn of the Rising Sun (Common)
 - Consumes 150 chrono to activate
@@ -41,7 +41,7 @@ Shout of the Resonant Word (Rare)
 - Consumes 900 chrono
 - Upon your next attack, deal strong knockback with the level scaling further with the damage dealt.
 
-Promise of Echo's Refrain (Rare)
+Promise of Final Judgement (Rare)
 - Upon taking fatal damage, cause a big explosion
 - Upon exploding, destroy 5 items in your inventory and drop the rest as normal.
 

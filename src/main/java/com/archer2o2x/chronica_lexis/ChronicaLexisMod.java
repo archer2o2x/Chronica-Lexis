@@ -2,6 +2,7 @@ package com.archer2o2x.chronica_lexis;
 
 import com.archer2o2x.chronica_lexis.items.ModCreativeTab;
 import com.archer2o2x.chronica_lexis.items.ModItems;
+import com.archer2o2x.chronica_lexis.items.scriptures.ModScriptures;
 import com.archer2o2x.chronica_lexis.network.ModPacketHandler;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
@@ -49,6 +50,7 @@ public class ChronicaLexisMod
 
         ModItems.register(modEventBus);
         ModCreativeTab.register(modEventBus);
+        ModScriptures.register(modEventBus);
 
         ModPacketHandler.register();
 
