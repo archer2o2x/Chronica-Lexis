@@ -30,7 +30,7 @@ public class ChronicaLexisItem extends ChronoGainItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level p_41432_, Player p_41433_, InteractionHand p_41434_) {
         if (p_41433_ instanceof ServerPlayer player) { // chronica_lexis:prayer_of_fast_recovery
-            if (ModScriptures.REGISTRY.get().getValue(ResourceLocation.fromNamespaceAndPath("chronica_lexis", "prayer_of_fast_recovery")) != null) {
+            if (ModScriptures.get("prayer_of_fast_recovery") != null) {
                 player.sendSystemMessage(Component.literal("Worked"));
             }
 //            for (ResourceLocation loc : ModScriptures.REGISTRY.get().getKeys()) {

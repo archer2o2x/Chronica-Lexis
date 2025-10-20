@@ -23,4 +23,11 @@ public class ModScriptures {
         SCRIPTURES.register(bus);
     }
 
+    public static Scripture get(ResourceLocation location) {
+        return REGISTRY.get().getValue(location);
+    }
+    public static Scripture get(String name) {
+        return get(ResourceLocation.fromNamespaceAndPath(ChronicaLexisMod.MODID, name));
+    }
+
 }
