@@ -22,6 +22,12 @@ public class ModPacketHandler {
                 OpenTomePacket::encode,
                 OpenTomePacket::decode,
                 OpenTomePacket::handle);
+
+        INSTANCE.registerMessage(PACKET_ID++,
+                KeyActionPacket.class,
+                KeyActionPacket::encode,
+                KeyActionPacket::decode,
+                KeyActionPacket::handle);
     }
 
 }

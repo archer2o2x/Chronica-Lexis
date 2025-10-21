@@ -15,7 +15,7 @@ public class ModScriptures {
 
     public static final ResourceKey<Registry<Scripture>> SCRIPTURE_REGISTRY_KEY = ResourceKey.createRegistryKey(ResourceLocation.fromNamespaceAndPath(ChronicaLexisMod.MODID, "scriptures"));
     public static final DeferredRegister<Scripture> SCRIPTURES = DeferredRegister.create(SCRIPTURE_REGISTRY_KEY, ChronicaLexisMod.MODID);
-    public static final Supplier<IForgeRegistry<Scripture>> REGISTRY = SCRIPTURES.makeRegistry(() -> new RegistryBuilder<Scripture>());
+    public static final Supplier<IForgeRegistry<Scripture>> REGISTRY = SCRIPTURES.makeRegistry(RegistryBuilder::new);
 
     public static final RegistryObject<Scripture> PRAYER_OF_FAST_RECOVERY = SCRIPTURES.register("prayer_of_fast_recovery", PrayerOfFastRecoveryScripture::new);
 

@@ -1,5 +1,6 @@
 package com.archer2o2x.chronica_lexis.items.scriptures;
 
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
@@ -17,6 +18,9 @@ public class PrayerOfFastRecoveryScripture extends Scripture {
     public void onUse(Player player, ItemStack stack) {
         player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 300, 2, true, false));
         player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 300, 2, true, false));
+//        CompoundTag data = loadState(this, stack);
+//        data.putInt("count", data.getInt("count") + 1);
+//        saveState(this, stack, data);
     }
 
 }

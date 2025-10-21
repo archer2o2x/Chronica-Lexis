@@ -1,6 +1,6 @@
 package com.archer2o2x.chronica_lexis.items.scriptures;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.nbt.*;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -16,4 +16,15 @@ public class Scripture {
     public void onAttack(Player player, ItemStack stack, Entity target) {}
 
     public record State(String id, int cost, Rarity rarity) {};
+
+    // tome = {
+    //   scriptures = List<String>
+    //   state = List<Compound>,
+    //   selected = Int
+    // }
+
+
+
+
+
 }

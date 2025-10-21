@@ -19,9 +19,12 @@ public class ModCreativeTab {
             .icon(() -> new ItemStack(ModItems.CHRONICHA_LEXIS_TOME.get()))
             .displayItems((params, output) -> {
                 output.accept(ModItems.CHRONICHA_LEXIS_TOME.get());
+
                 output.accept(ModItems.THEORICA_TEMPORALIS_TOME.get());
                 output.accept(ModItems.STIRRING_THEORICA_TEMPORALIS_TOME.get());
                 output.accept(ModItems.AWAKENED_THEORICA_TEMPORALIS_TOME.get());
+
+                output.accept(ModItems.PRAYER_OF_FAST_RECOVERY_SCRIPTURE.get());
             })
             .build());
 

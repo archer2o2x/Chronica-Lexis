@@ -19,5 +19,12 @@
   "desc.chronica_lexis.awakened_theorica_temporalis_tome.1": "A grand tome of old magic,",
   "desc.chronica_lexis.awakened_theorica_temporalis_tome.2": "watching and waiting for rebirth.",
 
-  "item_group.chronica_lexis.main": "Chronica Lexis"
+  "item_group.chronica_lexis.main": "Chronica Lexis",
+
+  "key.categories.chronica_lexis.main": "Chronica Lexis",
+
+  "key.chronica_lexis.activate": "Activate Scripture",
+  "key.chronica_lexis.quick_select": "Select Scripture",
+  "key.chronica_lexis.next": "Next Scripture",
+  "key.chronica_lexis.previous": "Previous Scripture"
 }

@@ -22,6 +22,11 @@ public class ChronicaLexisGui {
 
         guiGraphics.drawString(gui.getFont(), Component.literal("Success!"), x, y, color(255, 255, 255, 255), false);
 
+        for (String name : ChronicaLexisItem.getScriptures(stack)) {
+            y += 10;
+            guiGraphics.drawString(gui.getFont(), Component.literal(name), x, y, color(255, 255, 255, 255), false);
+        }
+
     };
 
     public static int color(int red, int green, int blue, int alpha) {

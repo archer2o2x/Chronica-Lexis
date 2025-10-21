@@ -1,7 +1,9 @@
 package com.archer2o2x.chronica_lexis.items;
 
 import com.archer2o2x.chronica_lexis.ChronicaLexisMod;
+import com.archer2o2x.chronica_lexis.items.scriptures.PrayerOfFastRecoveryScripture;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,6 +24,9 @@ public class ModItems {
             () -> new TheoricaTemporalisItem(new Item.Properties().rarity(Rarity.EPIC).fireResistant().stacksTo(1), TheoricaTemporalisItem.State.STIRRING));
     public static final RegistryObject<Item> AWAKENED_THEORICA_TEMPORALIS_TOME = ITEMS.register("awakened_theorica_temporalis_tome",
             () -> new TheoricaTemporalisItem(new Item.Properties().rarity(Rarity.EPIC).fireResistant().stacksTo(1), TheoricaTemporalisItem.State.AWAKENED));
+
+    public static final RegistryObject<Item> PRAYER_OF_FAST_RECOVERY_SCRIPTURE = ITEMS.register("prayer_of_fast_recovery_scripture",
+            () -> new ScriptureItem(new Item.Properties().rarity(Rarity.RARE).fireResistant().stacksTo(1), "prayer_of_fast_recovery"));
 
     public static void register(IEventBus bus) {
         ITEMS.register(bus);
