@@ -3,6 +3,10 @@
   "item.chronica_lexis.theorica_temporalis_tome": "Theorica Temporalis (Dormant)",
   "item.chronica_lexis.stirring_theorica_temporalis_tome": "Theorica Temporalis (Stirring)",
   "item.chronica_lexis.awakened_theorica_temporalis_tome": "Theorica Temporalis (Awakened)",
+  "item.chronica_lexis.scripture.common": "Scripture (Common)",
+  "item.chronica_lexis.scripture.uncommon": "Scripture (Uncommon)",
+  "item.chronica_lexis.scripture.rare": "Scripture (Rare)",
+  "item.chronica_lexis.scripture.epic": "Scripture (Epic)",
 
   "step.chronica_lexis.theorica_temporalis.reborn": "The Chronica Lexis is born, granted as a gift from one long forgotten.",
   "step.chronica_lexis.theorica_temporalis.awakened": "The Theorica Temporalis has fully awakened, and craves rebirth.",

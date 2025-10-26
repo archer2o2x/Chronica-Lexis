@@ -1,9 +1,6 @@
 package com.archer2o2x.chronica_lexis.items;
 
 import com.archer2o2x.chronica_lexis.ChronicaLexisMod;
-import com.archer2o2x.chronica_lexis.items.scriptures.PrayerOfFastRecoveryScripture;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -25,7 +22,7 @@ public class ModItems {
     public static final RegistryObject<Item> AWAKENED_THEORICA_TEMPORALIS_TOME = ITEMS.register("awakened_theorica_temporalis_tome",
             () -> new TheoricaTemporalisItem(new Item.Properties().rarity(Rarity.EPIC).fireResistant().stacksTo(1), TheoricaTemporalisItem.State.AWAKENED));
 
-    public static final RegistryObject<Item> PRAYER_OF_FAST_RECOVERY_SCRIPTURE = ITEMS.register("prayer_of_fast_recovery_scripture",
+    public static final RegistryObject<Item> SCRIPTURE = ITEMS.register("scripture",
             () -> new ScriptureItem(new Item.Properties().rarity(Rarity.RARE).fireResistant().stacksTo(1), "prayer_of_fast_recovery"));
 
     public static void register(IEventBus bus) {
@@ -33,9 +30,6 @@ public class ModItems {
     }
 
     // TODO NEXT TIME
-    // - Started on the screen functionality of the Chronica Lexis, but I think that the Item.use method is only called server-side.
-    // - Gonna need to look into codecs (or the other networking stuff) to make it load the screen properly.
-    // - Also need to have a think about how I'm gonna store the book data, ideally not hard code anything nor spam NBT data.
-    // - Implement the basic functionality of the Chronica Lexis, E.G. Holding scriptures, scrolling and usage.
+    // - Turn the scripture item into a single item that reads its state from NBT and can generate addon scriptures as well.
 
 }

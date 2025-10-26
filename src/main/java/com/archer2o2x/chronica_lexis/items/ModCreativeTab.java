@@ -1,13 +1,13 @@
 package com.archer2o2x.chronica_lexis.items;
 
 import com.archer2o2x.chronica_lexis.ChronicaLexisMod;
+import com.archer2o2x.chronica_lexis.items.scriptures.ModScriptures;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModCreativeTab {
@@ -24,7 +24,13 @@ public class ModCreativeTab {
                 output.accept(ModItems.STIRRING_THEORICA_TEMPORALIS_TOME.get());
                 output.accept(ModItems.AWAKENED_THEORICA_TEMPORALIS_TOME.get());
 
-                output.accept(ModItems.PRAYER_OF_FAST_RECOVERY_SCRIPTURE.get());
+                // Generate a full complement of ScriptureItems.
+                ModScriptures.REGISTRY.get().getKeys().forEach(scripture -> {
+                    ItemStack stack = new ItemStack(ModItems.SCRIPTURE.get());
+                    ScriptureItem.setScripture(stack, scripture);
+                    output.accept(stack);
+                });
+
             })
             .build());
 

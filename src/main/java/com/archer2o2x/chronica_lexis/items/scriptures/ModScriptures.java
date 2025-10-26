@@ -5,8 +5,6 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.*;
 
 import java.util.function.Supplier;
@@ -27,6 +25,9 @@ public class ModScriptures {
         return REGISTRY.get().getValue(location);
     }
     public static Scripture get(String name) {
+        return get(ResourceLocation.parse(name));
+    }
+    public static Scripture getSimple(String name) {
         return get(ResourceLocation.fromNamespaceAndPath(ChronicaLexisMod.MODID, name));
     }
 

@@ -25,6 +25,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.STIRRING_THEORICA_TEMPORALIS_TOME);
         simpleItem(ModItems.AWAKENED_THEORICA_TEMPORALIS_TOME);
 
+        simpleItem(ModItems.SCRIPTURE);
+
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

@@ -23,8 +23,4 @@ public class Scripture {
     //   selected = Int
     // }
 
-
-
-
-
 }

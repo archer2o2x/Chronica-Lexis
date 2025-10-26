@@ -2,14 +2,12 @@ package com.archer2o2x.chronica_lexis.items;
 
 import com.archer2o2x.chronica_lexis.items.scriptures.ModScriptures;
 import com.archer2o2x.chronica_lexis.items.scriptures.Scripture;
-import com.archer2o2x.chronica_lexis.items.scriptures.PrayerOfFastRecoveryScripture;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -47,7 +45,7 @@ public class ChronicaLexisItem extends ChronoGainItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level p_41432_, Player p_41433_, InteractionHand p_41434_) {
         if (p_41433_ instanceof ServerPlayer player) { // chronica_lexis:prayer_of_fast_recovery
-            if (ModScriptures.get("prayer_of_fast_recovery") != null) {
+            if (ModScriptures.getSimple("prayer_of_fast_recovery") != null) {
                 player.sendSystemMessage(Component.literal("Worked"));
             }
 //            for (ResourceLocation loc : ModScriptures.REGISTRY.get().getKeys()) {
@@ -107,7 +105,7 @@ public class ChronicaLexisItem extends ChronoGainItem {
     public static Scripture getSelectedScripture(ItemStack stack) {
         CompoundTag tome = stack.getOrCreateTag();
         if (!tome.contains("selected")) return null;
-        return ModScriptures.get(tome.getString("selected"));
+        return ModScriptures.getSimple(tome.getString("selected"));
     }
 
     public static void removeScripture(ItemStack stack, String name) {
