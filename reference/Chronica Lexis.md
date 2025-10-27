@@ -37,6 +37,11 @@ Hymn of the Rising Sun (Common)
 - When activated during sunrise, gain 1 charge with a max of 3, can only be used one per sunrise.
 - When activated outside of sunrise, grant strength for 30 seconds with the amount of charges as the level.
 
+Tale of the Falling Sun (Uncommon)
+- Consume 250 chrono to activate
+- When activated during sunset, gain 1 charge with a max of 3, can only be used once per sunset.
+- When activated outside of sunset, grant speed and jump boost for 30 seconds, with the amount of charges as the level.
+
 Shout of the Resonant Word (Rare)
 - Consumes 900 chrono
 - Upon your next attack, deal strong knockback with the level scaling further with the damage dealt.
@@ -72,9 +77,35 @@ Parable of the Sun and the Moon (Common)
 - If activated during the day, grant 90 seconds of speed
 - If activated during the night, grant 90 seconds of haste
 
+Theory of Time-given Tolerance (Uncommon)
+- Consume 450 chrono to activate
+- Any neutral mobs within 5 blocks stop attacking you.
+
+Guide to the Foolish Gamblers Game (Uncommon)
+- Consume 250 chrono to activate
+- Upon activation, select a number between 1 and 6.
+- Upon activation, start with a charge of 1.
+- When the number chosen is a 6, gain charge extra permanent heart.
+- When the number chosen is a 1, lose charge + 1 extra permanent hearts, unless this would kill you.
+- When the number chosen is neither 1 nor 6, increase charge by 1 until a max of 5.
+
+Poem of the Flowering Gardens (Uncommon)
+- Consume 750 chrono to activate
+- Each flower block with 3 blocks of you has a 10% chance of spawning a bee.
+- Bees spawned using this method will attack creatures that attack you first.
+
+Pamphlet of Poor Prose (Uncommon)
+- Consume 500 chrono to activate.
+- Deals 1 heart of damage to each creature within 3 blocks, including you.
+
+Scroll of Remembrance (Uncommon)
+- Consumes 12 chrono a second whilst active.
+- Gain double exp when killing a mob.
+- Experience is instantly collected within 3 blocks of you.
+
 Blessing of Eternity (Epic)
 - Consumes all chrono at activation and prevents gaining more naturally.
-- Upon taking fatal damage, teleport to your bed unharmed.
+- Upon taking fatal damage, teleport to your bed unharmed and deactivate all effects.
 - If a full day passes after activation without dying or sleeping, gain 600 chrono and repeat each full day.
 
 Curse of Endless Paradoxes (Epic)
@@ -82,4 +113,4 @@ Curse of Endless Paradoxes (Epic)
 - Kill all mobs within 5 blocks, regardless of health
 - Destroy the players entire inventory including the Chronica Lexis, and permanently remove a heart.
 
-Current Scriptures - 6 common, 6 rare, 2 epic
+Current Scriptures - 6 common, 6 uncommon, 6 rare, 2 epic (May need reorganising)
