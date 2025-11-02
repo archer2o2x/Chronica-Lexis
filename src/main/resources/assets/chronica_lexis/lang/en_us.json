@@ -30,5 +30,13 @@
   "key.chronica_lexis.activate": "Activate Scripture",
   "key.chronica_lexis.quick_select": "Select Scripture",
   "key.chronica_lexis.next": "Next Scripture",
-  "key.chronica_lexis.previous": "Previous Scripture"
+  "key.chronica_lexis.previous": "Previous Scripture",
+
+  "scripture.chronica_lexis.prayer_of_fast_recovery.name": "Prayer of Fast Recovery",
+  "scripture.chronica_lexis.prayer_of_fast_recovery.desc1": "A prayer written to mend",
+  "scripture.chronica_lexis.prayer_of_fast_recovery.desc2": "and repair the flesh.",
+
+  "scripture.chronica_lexis.utterance_of_instant_velocity.name": "Utterance of Instant Velocity",
+  "scripture.chronica_lexis.utterance_of_instant_velocity.desc1": "A simple phrase with the power",
+  "scripture.chronica_lexis.utterance_of_instant_velocity.desc2": "to propel you through the air."
 }

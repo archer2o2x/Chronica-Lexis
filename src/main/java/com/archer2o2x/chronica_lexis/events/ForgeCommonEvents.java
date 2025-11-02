@@ -22,6 +22,7 @@ public class ForgeCommonEvents {
         if (Minecraft.getInstance().player == null) return;
         ItemStack stack = ChronicaLexisItem.getChronicaLexis(Minecraft.getInstance().player);
         if (stack == null) return;
+        ChronicaLexisItem.tickCurrentScripture(Minecraft.getInstance().player, stack);
         if (ModKeybinds.ACTIVATE.get().isDown() && !activate) {
             ModPacketHandler.INSTANCE.sendToServer(new KeyActionPacket(ModKeybinds.Actions.ACTIVATE));
         }

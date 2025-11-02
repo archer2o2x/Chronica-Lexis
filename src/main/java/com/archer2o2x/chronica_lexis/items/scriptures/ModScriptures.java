@@ -16,6 +16,7 @@ public class ModScriptures {
     public static final Supplier<IForgeRegistry<Scripture>> REGISTRY = SCRIPTURES.makeRegistry(RegistryBuilder::new);
 
     public static final RegistryObject<Scripture> PRAYER_OF_FAST_RECOVERY = SCRIPTURES.register("prayer_of_fast_recovery", PrayerOfFastRecoveryScripture::new);
+    public static final RegistryObject<Scripture> UTTERANCE_OF_INSTANT_VELOCITY = SCRIPTURES.register("utterance_of_instant_velocity", UtteranceOfInstantVelocity::new);
 
     public static void register(IEventBus bus) {
         SCRIPTURES.register(bus);

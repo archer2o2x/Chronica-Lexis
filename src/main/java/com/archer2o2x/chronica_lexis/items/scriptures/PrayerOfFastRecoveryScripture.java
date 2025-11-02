@@ -1,6 +1,8 @@
 package com.archer2o2x.chronica_lexis.items.scriptures;
 
+import com.archer2o2x.chronica_lexis.ChronicaLexisMod;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
@@ -11,7 +13,7 @@ public class PrayerOfFastRecoveryScripture extends Scripture {
 
     @Override
     public State getState() {
-        return new State("prayer_of_fast_recovery", 450, Rarity.COMMON);
+        return new State(ResourceLocation.fromNamespaceAndPath(ChronicaLexisMod.MODID,"prayer_of_fast_recovery"), 450, Rarity.COMMON);
     }
 
     @Override

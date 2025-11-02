@@ -12,10 +12,9 @@ The Chronica Lexis itself needs to be created with a special set of steps. First
 	"The Chronica Lexis is born, granted as a gift from one long forgotten."
 
 ## Scriptures
-Treatise of the Never-Will (Common)
-- Consumes 300 chrono.
-- Gives player 10 seconds of true invisibility.
-- If an item is used, or the player is hurt, invisibility ends early.
+Utterance of Instant Velocity (Common)
+- Consumes 150 chrono.
+- Grants the player a small boost of momentum in the direction the player is looking.
 
 Verse of the Forgotten Futures (Rare)
 - Consumes 10 chrono per second whilst active.
@@ -37,7 +36,7 @@ Hymn of the Rising Sun (Common)
 - When activated during sunrise, gain 1 charge with a max of 3, can only be used one per sunrise.
 - When activated outside of sunrise, grant strength for 30 seconds with the amount of charges as the level.
 
-Tale of the Falling Sun (Uncommon)
+Tale of the Rising Moon (Uncommon)
 - Consume 250 chrono to activate
 - When activated during sunset, gain 1 charge with a max of 3, can only be used once per sunset.
 - When activated outside of sunset, grant speed and jump boost for 30 seconds, with the amount of charges as the level.

@@ -38,10 +38,11 @@ public class KeyActionPacket {
                 if (stack == null) return;
                 Scripture scripture = ChronicaLexisItem.getSelectedScripture(stack);
                 if (scripture == null) return;
-                if (ChronicaLexisItem.getChrono(stack) > scripture.getState().cost()) {
-                    ChronicaLexisItem.consumeChrono(stack, scripture.getState().cost());
-                    scripture.onUse(player, stack);
-                }
+                ChronicaLexisItem.activateCurrentScripture(player, stack);
+//                if (ChronicaLexisItem.getChrono(stack) > scripture.getState().cost()) {
+//                    ChronicaLexisItem.consumeChrono(stack, scripture.getState().cost());
+//                    scripture.onUse(player, stack);
+//                }
             }
 
         });

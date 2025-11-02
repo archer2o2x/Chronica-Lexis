@@ -3,12 +3,15 @@ package com.archer2o2x.chronica_lexis.items;
 import com.archer2o2x.chronica_lexis.items.scriptures.ModScriptures;
 import com.archer2o2x.chronica_lexis.items.scriptures.Scripture;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -45,22 +48,22 @@ public class ChronicaLexisItem extends ChronoGainItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level p_41432_, Player p_41433_, InteractionHand p_41434_) {
         if (p_41433_ instanceof ServerPlayer player) { // chronica_lexis:prayer_of_fast_recovery
-            if (ModScriptures.getSimple("prayer_of_fast_recovery") != null) {
-                player.sendSystemMessage(Component.literal("Worked"));
-            }
-//            for (ResourceLocation loc : ModScriptures.REGISTRY.get().getKeys()) {
-//                player.sendSystemMessage(Component.literal(loc.toString()));
+//            if (ModScriptures.getSimple("prayer_of_fast_recovery") != null) {
+//                player.sendSystemMessage(Component.literal("Worked"));
 //            }
-            ItemStack stack = p_41433_.getItemInHand(p_41434_);
-            if (!hasScripture(stack, "prayer_of_fast_recovery")) {
-                addScripture(stack, "prayer_of_fast_recovery");
-            }
-            Scripture test = getSelectedScripture(stack);
-            if (test == null) return InteractionResultHolder.fail(p_41433_.getItemInHand(p_41434_));
-            if (getChrono(stack) > test.getState().cost()) {
-                consumeChrono(stack, test.getState().cost());
-                test.onUse(player, stack);
-            }
+////            for (ResourceLocation loc : ModScriptures.REGISTRY.get().getKeys()) {
+////                player.sendSystemMessage(Component.literal(loc.toString()));
+////            }
+//            ItemStack stack = p_41433_.getItemInHand(p_41434_);
+//            if (!hasScripture(stack, "prayer_of_fast_recovery")) {
+//                addScripture(stack, "prayer_of_fast_recovery");
+//            }
+//            Scripture test = getSelectedScripture(stack);
+//            if (test == null) return InteractionResultHolder.fail(p_41433_.getItemInHand(p_41434_));
+//            if (getChrono(stack) > test.getState().cost()) {
+//                consumeChrono(stack, test.getState().cost());
+//                test.onUse(player, stack);
+//            }
             //ModPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), new OpenTomePacket(stack));
         }
         return InteractionResultHolder.success(p_41433_.getItemInHand(p_41434_));
@@ -87,11 +90,18 @@ public class ChronicaLexisItem extends ChronoGainItem {
         return null;
     }
 
-    public static void activateScripture(Player player, ItemStack stack) {
-        CompoundTag base = stack.getOrCreateTag();
-        if (!base.contains("scriptures") || !base.contains("scriptureIndex")) return;
-        int index = base.getInt("scriptureIndex");
-        //base.getCompound("scriptures").
+    public static void activateCurrentScripture(Player player, ItemStack stack) {
+        Scripture scripture = getSelectedScripture(stack);
+        if (ChronicaLexisItem.getChrono(stack) >= scripture.getState().cost()) {
+            ChronicaLexisItem.consumeChrono(stack, scripture.getState().cost());
+            scripture.onUse(player, stack);
+            player.level().playSound((Player)null, player.blockPosition(), SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 1.0F, player.level().random.nextFloat() * 0.1F + 0.9F);
+        }
+    }
+
+    public static void tickCurrentScripture(Player player, ItemStack stack) {
+        Scripture scripture = getSelectedScripture(stack);
+        scripture.onTick(player, stack);
     }
 
     public static void addScripture(ItemStack stack, String name) {
@@ -105,7 +115,7 @@ public class ChronicaLexisItem extends ChronoGainItem {
     public static Scripture getSelectedScripture(ItemStack stack) {
         CompoundTag tome = stack.getOrCreateTag();
         if (!tome.contains("selected")) return null;
-        return ModScriptures.getSimple(tome.getString("selected"));
+        return ModScriptures.get(tome.getString("selected"));
     }
 
     public static void removeScripture(ItemStack stack, String name) {
