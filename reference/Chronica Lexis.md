@@ -13,8 +13,9 @@ The Chronica Lexis itself needs to be created with a special set of steps. First
 
 ## Scriptures
 Utterance of Instant Velocity (Common)
-- Consumes 150 chrono.
-- Grants the player a small boost of momentum in the direction the player is looking.
+- Consumes 60 chrono.
+- Grants the player a small boost of velocity in the direction the player is looking and upwards.
+- Also resets fall damage, for use while using this ability to platform. Players can still gain fall damage after the reset.
 
 Verse of the Forgotten Futures (Rare)
 - Consumes 10 chrono per second whilst active.
